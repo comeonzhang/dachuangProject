@@ -1,0 +1,14 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">视佳居</h1>
+
+        <p class="lead">视佳居是一款创新的独居者生活行为识别系统，结合计算机视觉、深度学习和物联网技术，
+            通过摄像头捕捉人体行为信息，并进行精准识别和实时监控。视佳居不仅提升了独居者的生活质量和安全感，
+            还减轻了监护人的负担，推动了智能家居和养老服务的发展。</p>
+
+        <a class="btn btn-lg btn_primary" href="{% url 'users:register' %}"
+           role="button">Register &raquo;</a>
+    </div>
+{% endblock page_header %}

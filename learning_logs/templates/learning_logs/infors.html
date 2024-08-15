@@ -1,0 +1,72 @@
+{% extends "learning_logs/base.html" %}
+
+{% block page_header %}
+    <h1>Eating and Sleeping Information</h1>
+{% endblock page_header %}
+
+{% block content %}
+<style>
+    .date-header {
+        margin: 16px 0;
+        font-size: 24px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 49%;
+        margin-right: 2px; /* Adjust as necessary for spacing */
+    }
+    th, td {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    /* Clearfix for floated elements */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+<body>
+    <div class="date-headers">
+        {% for daily_activity in daily_activities_by_date %}
+            <div class="date-header">{{ daily_activity.date|date:"Y-m-d" }}</div>
+            <div class="clearfix">
+                <table style="float: left;">
+                    <!-- Sleep Records -->
+                    <tr>
+                        <th>Sleep Times</th>
+                        <th>Sleep Start Time</th>
+                        <th>Sleep End Time</th>
+                    </tr>
+                    {% for sleep in daily_activity.sleep_records %}
+                        <tr>
+                            <td>{{ sleep.sleep_times }}</td>
+                            <td>{{ sleep.sleep_begin_time}}</td>
+                            <td>{{ sleep.sleep_end_time}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <table style="float: left;">
+                    <!-- Eat Records -->
+                    <tr>
+                        <th>Eating Times</th>
+                        <th>Eating Start Time</th>
+                        <th>Eating End Time</th>
+                    </tr>
+                    {% for eat in daily_activity.eat_records %}
+                        <tr>
+                            <td>{{ eat.eat_times }}</td>
+                            <td>{{ eat.eat_begin_time}}</td>
+                            <td>{{ eat.eat_end_time}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock content %}
