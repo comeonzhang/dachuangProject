@@ -74,7 +74,6 @@ POSE_MAPPING_COLOR = [
 
 # 为了检测动作的准确度，每30帧进行一次检测
 ACTION_MODEL_MAX_FRAMES = 30
-global first_sleep_time
 def motion_detection(Js, Je, Tp=35, Ts=0.5, sh=2):
     a = 0
     # 检查关节点置信度
